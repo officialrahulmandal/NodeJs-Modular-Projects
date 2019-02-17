@@ -17,7 +17,7 @@ app.use(express.static(__dirname))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// using mongoode promise
+// using mongoose promise
 mongoose.Promise = Promise
 
 // we are using an online mongodb so change this url according to yours
@@ -72,7 +72,7 @@ io.on('connection', (socket) => {
     console.log('a user connected')
 })
 
-/// once our DB is connected we get this messages over the console
+// once our DB is connected we get this messages over the console
 mongoose.connect(dbUrl, { useMongoClient: true }, (err) => {
     console.log('mongo db connection', err)
 })
