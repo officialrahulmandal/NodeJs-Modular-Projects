@@ -11,7 +11,7 @@ var io = require('socket.io')(http)
 // importing mongoose for making a connection to thhe DB
 var mongoose = require('mongoose')
 
-// fiving the path for static assets
+// finding the path for static assets
 app.use(express.static(__dirname))
 // using body parser to extract the necessary info out of posted body
 app.use(bodyParser.json())
@@ -51,7 +51,7 @@ app.post('/messages', async (req, res) => {
     var censored = await Message.findOne({ message: 'badword' })
 
     // if we find a censored message we simply going to remove it from the message Table
-    if (censored) 
+    if (censored)
         await Message.remove({ _id: censored.id })
     else
         // if not we are going to emit a message event that will update the messages on the frontend javascript
